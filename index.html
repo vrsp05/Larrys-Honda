@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larry's Preludes</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🏎️ Larry's Preludes</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Larry's Preludes</h1>
+            <p>A Showcase of Classic Honda Preludes</p>
+            <a href="#gallery" class="cta-button">View Gallery</a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Our Collection</h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be added by JavaScript -->
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <img src="images/prelude-1.jpg" alt="Honda Prelude 1">
+                    </div>
+                    <h3>Prelude #1</h3>
+                    <p>Classic Honda Prelude</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <img src="images/prelude-2.jpg" alt="Honda Prelude 2">
+                    </div>
+                    <h3>Prelude #2</h3>
+                    <p>Classic Honda Prelude</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <img src="images/prelude-3.jpg" alt="Honda Prelude 3">
+                    </div>
+                    <h3>Prelude #3</h3>
+                    <p>Classic Honda Prelude</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Larry's Collection</h2>
+            <p>Larry is passionate about Honda Preludes and has carefully curated an impressive collection of these classic vehicles. Each Prelude in our collection represents automotive excellence and timeless design.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <h3>Quality</h3>
+                    <p>Meticulously maintained vehicles</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Heritage</h3>
+                    <p>Celebrating automotive history</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Passion</h3>
+                    <p>Driven by true enthusiasm</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Larry's Preludes. All rights reserved.</p>
+                <p>Copyright &copy; Jason James and Victor Santana</p>
+                <p>Created by <a href="https://github.com" target="_blank">Victor Santana on GitHub</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
