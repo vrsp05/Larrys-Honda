@@ -1,0 +1,25 @@
+{
+  "name": "larrys-honda",
+  "version": "1.0.0",
+  "description": "Larry's Honda - A showcase of classic Honda Preludes for sale",
+  "main": "index.html",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "cypress run",
+    "test:watch": "cypress open",
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox"
+  },
+  "keywords": [
+    "honda",
+    "prelude",
+    "classic cars",
+    "automotive"
+  ],
+  "author": "Victor Santana",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.17.0"
+  }
+}
