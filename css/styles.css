@@ -83,9 +83,9 @@ body {
 .hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
-    padding: 60px 20px;
+    padding: 20px 20px;
     text-align: center;
-    min-height: 60vh;
+    height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,42 +97,69 @@ body {
 }
 
 .hero-content h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-bottom: 1rem;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: 0.4rem;
     animation: fadeInDown 0.8s ease;
 }
 
 .hero-content > p:first-of-type {
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    margin-bottom: 2rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    margin-bottom: 1rem;
     animation: fadeInUp 0.8s ease 0.2s backwards;
 }
 
 .hero-description {
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     animation: fadeInUp 0.8s ease 0.4s backwards;
 }
 
 .hero-description p {
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
-    line-height: 1.8;
-    margin-bottom: 1rem;
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
 }
 
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
     color: white;
-    padding: 12px 30px;
+    padding: 10px 25px;
     text-decoration: none;
     border-radius: 5px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: fadeInUp 0.8s ease 0.4s backwards;
+    font-size: 0.95rem;
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.6s backwards;
+}
+
+.cta-link {
+    display: inline-block;
+    color: white;
+    padding: 8px 18px;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.cta-link:hover {
+    background-color: white;
+    color: var(--primary-color);
+    transform: translateY(-2px);
 }
 
 /* Gallery Section */
