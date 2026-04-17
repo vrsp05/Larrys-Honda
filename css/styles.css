@@ -488,6 +488,40 @@ body {
     transform: scale(0.98);
 }
 
+/* Form Error and Success Messages */
+.error-message {
+    display: block;
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    min-height: 1.25rem;
+}
+
+.success-message {
+    display: block;
+    color: #27ae60;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.form-group input.input-error,
+.form-group textarea.input-error {
+    border-color: #e74c3c;
+    background-color: #fadbd8;
+}
+
+.contact-note {
+    text-align: center;
+    margin-top: 2rem;
+    color: #555;
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Footer */
 .footer {
     background-color: var(--secondary-color);
