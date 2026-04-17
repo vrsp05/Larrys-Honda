@@ -1,75 +1,48 @@
 # Larry's Honda
 
-A website showcasing a collection of classic Honda Preludes.
+Welcome to **Larry's Honda**, a modern web application dedicated to showcasing a curated collection of classic Honda Preludes.
 
-## Project Structure
+> **Website**: [Coming Soon](#)
 
-```
-Larrys-Honda/
-├── index.html          # Main HTML file
-├── css/
-│   └── styles.css      # Stylesheet
-├── js/
-│   └── script.js       # JavaScript functionality
-├── images/             # Directory for Prelude photos
-└── README.md           # This file
-```
+## Project Description
 
-## Features
+This web application provides an elegant platform for browsing and exploring classic Honda Prelude vehicles. The platform offers:
 
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Smooth Navigation**: Smooth scrolling between sections
-- **Gallery Section**: Showcase Prelude vehicles with images
-- **About Section**: Information about the collection
-- **Contact Form**: Visitors can send messages
-- **Modern Styling**: Clean, professional appearance with animations
+- **Vehicle Gallery**: An interactive showcase of classic Honda Preludes with detailed information for each vehicle
+- **Contact Form**: Integrated contact system for inquiries and personalized attention
+- **Intuitive Interface**: Responsive and modern design for optimal user experience across all devices
+- **Smooth Navigation**: Enhanced navigation with smooth scrolling and seamless transitions
 
-## How to Use
+## Key Features
 
-1. **Open the website**: Open `index.html` in your web browser
-2. **Add Images**: Place your Prelude photos in the `images/` directory
-3. **Update Gallery**: Edit `index.html` to add more gallery items or change descriptions
-4. **Customize**: Modify `css/styles.css` for colors, fonts, and layout
+- Comprehensive gallery of classic Honda Preludes
+- Functional contact form with Web3Forms integration
+- Responsive and accessible design
+- Intuitive navigation bar with smooth scrolling
+- Image carousel and pagination
+- Professional, modern styling with animations
+- Cross-browser compatibility
 
-## Adding Prelude Photos
+## Technology Stack
 
-1. Save your Prelude photos in the `images/` folder
-2. Typical filenames: `prelude-1.jpg`, `prelude-2.jpg`, etc.
-3. Update the `<img>` tags in `index.html` with correct filenames
-4. Update the `<h3>` titles and `<p>` descriptions as needed
+- **HTML5** - Semantic markup and structure
+- **CSS3** - Modern styling with responsive design
+- **Vanilla JavaScript** - Dynamic functionality and interactivity
+- **Web3Forms** - Secure form management for contact forms
+- **Cypress** - End-to-end testing framework
 
-## Customization
+## Testing
 
-### Change Colors
-Edit the CSS variables in `css/styles.css`:
-```css
-:root {
-    --primary-color: #e74c3c;      /* Red - main accent */
-    --secondary-color: #2c3e50;    /* Dark blue - headers */
-    --accent-color: #f39c12;       /* Orange - buttons */
-}
-```
-
-### Update Footer/Contact Info
-Edit the footer in `index.html` to add your actual GitHub URL and contact information.
-
-### Contact Form
-The contact form currently shows a success message when submitted. To make emails functional, you can use:
-- Formspree
-- Netlify Forms
-- Firebase
-
-## Browser Compatibility
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+The project includes comprehensive end-to-end tests using Cypress.
 
 ## License
 
-Copyright © 2026 Jason James and Victor Santana
+All rights reserved © 2026 Larry's Honda
 
----
+## Contact & Credits
 
-Created by Victor Santana
+**Developed By:**  
+[Victor Santana](https://github.com/vrsp05)
+
+**With Assistance From:**  
+GitHub Copilot (Claude Haiku 4.5)
