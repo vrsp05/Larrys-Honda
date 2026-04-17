@@ -674,9 +674,21 @@ body {
         grid-template-columns: 1fr;
     }
 
-    /* Ensure pagination is above mobile menu */
+    /* Keep pagination above mobile menu but below navbar */
     .pagination-controls {
-        z-index: 101;
+        z-index: 50;
+    }
+
+    /* Smaller buttons for mobile */
+    .pagination-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .page-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
     }
 }
 

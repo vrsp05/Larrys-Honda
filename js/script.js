@@ -139,12 +139,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
             
-            // Wait for menu to close before scrolling
+            // Wait for menu animation to complete AND layout to settle
             setTimeout(() => {
                 if (target) {
-                    smoothScrollToElement(target);
+                    // Use requestAnimationFrame to ensure DOM is fully settled
+                    requestAnimationFrame(() => {
+                        smoothScrollToElement(target);
+                    });
                 }
-            }, 300);
+            }, 350);
         } else if (target) {
             smoothScrollToElement(target);
         }
@@ -157,12 +160,15 @@ function smoothScrollToElement(element) {
     const navbar = document.querySelector('.navbar');
     const navHeight = navbar ? navbar.offsetHeight : 70;
     
-    // Calculate position
-    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = Math.max(0, elementPosition - navHeight);
+    // Get the element's current position (after layout has settled)
+    const rect = element.getBoundingClientRect();
+    const absoluteElementTop = rect.top + window.scrollY;
+    
+    // Scroll with navbar offset
+    const targetScroll = absoluteElementTop - navHeight;
     
     window.scrollTo({
-        top: offsetPosition,
+        top: Math.max(0, targetScroll),
         behavior: 'smooth'
     });
 }
