@@ -1,4 +1,38 @@
+// Carousel image state - tracks current image for each car
+const carouselState = [
+    { current: 1 },
+    { current: 1 },
+    { current: 1 },
+    { current: 1 },
+    { current: 1 }
+];
+
+// Change carousel image
+function changeImage(carIndex, direction) {
+    const totalImages = 5;
+    carouselState[carIndex].current += direction;
+    
+    // Wrap around
+    if (carouselState[carIndex].current > totalImages) {
+        carouselState[carIndex].current = 1;
+    } else if (carouselState[carIndex].current < 1) {
+        carouselState[carIndex].current = totalImages;
+    }
+    
+    // Get all gallery items and update the specific one
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const carouselContainer = galleryItems[carIndex].querySelector('.carousel-container');
+    const imagePath = `images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${carouselState[carIndex].current}.jpg`;
+    
+    // Update image
+    carouselContainer.querySelector('.carousel-image').src = imagePath;
+    
+    // Update counter
+    carouselContainer.querySelector('.current-image').textContent = carouselState[carIndex].current;
+}
+
 // Smooth scrolling for navigation links
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
