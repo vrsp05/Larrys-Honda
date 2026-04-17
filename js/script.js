@@ -7,6 +7,25 @@ const carouselState = [
     { current: 1 }
 ];
 
+// Hamburger menu functionality
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+}
+
 // Change carousel image
 function changeImage(carIndex, direction) {
     const totalImages = 5;
@@ -91,10 +110,16 @@ function renderPaginationNumbers() {
     
     for (let i = 1; i <= totalPages; i++) {
         const btn = document.createElement('button');
+        btn.type = 'button';
         btn.className = 'page-number';
         btn.setAttribute('data-page', i);
         btn.textContent = i;
-        btn.onclick = () => showPage(i);
+        btn.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            showPage(i);
+            return false;
+        };
         paginationContainer.appendChild(btn);
     }
 }
@@ -108,14 +133,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        
+        // Close hamburger menu if it's open
+        if (hamburger && navMenu && hamburger.classList.contains('active')) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            
+            // Wait for menu to close before scrolling
+            setTimeout(() => {
+                if (target) {
+                    smoothScrollToElement(target);
+                }
+            }, 300);
+        } else if (target) {
+            smoothScrollToElement(target);
         }
     });
 });
+
+// Custom smooth scroll function to properly handle mobile
+function smoothScrollToElement(element) {
+    // Get actual navbar height
+    const navbar = document.querySelector('.navbar');
+    const navHeight = navbar ? navbar.offsetHeight : 70;
+    
+    // Calculate position
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = Math.max(0, elementPosition - navHeight);
+    
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+    });
+}
 
 // Contact form handling with validation and Web3Form integration
 document.getElementById('contactForm').addEventListener('submit', async function(e) {

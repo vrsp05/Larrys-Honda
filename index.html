@@ -12,7 +12,12 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo"><img src="images/larrys-honda-logo.png" alt="Larry's Honda Logo" class="logo-img"> Larry's Preludes</div>
-            <ul class="nav-menu">
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#gallery">Gallery</a></li>
@@ -173,9 +178,9 @@
 
             <!-- Pagination Controls -->
             <div class="pagination-controls">
-                <button class="pagination-btn prev-page" onclick="previousPage()">&#10094; Previous</button>
+                <button type="button" class="pagination-btn prev-page" onclick="previousPage(); event.stopPropagation();">&#10094; Previous</button>
                 <div class="pagination-numbers" id="paginationNumbers"></div>
-                <button class="pagination-btn next-page" onclick="nextPage()">Next &#10095;</button>
+                <button type="button" class="pagination-btn next-page" onclick="nextPage(); event.stopPropagation();">Next &#10095;</button>
             </div>
         </div>
     </section>
