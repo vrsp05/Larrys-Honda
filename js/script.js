@@ -31,6 +31,77 @@ function changeImage(carIndex, direction) {
     carouselContainer.querySelector('.current-image').textContent = carouselState[carIndex].current;
 }
 
+// Pagination variables
+let currentPage = 1;
+const itemsPerPage = 2;
+const totalItems = 5;
+const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+// Initialize pagination
+function initPagination() {
+    renderPaginationNumbers();
+    showPage(currentPage);
+}
+
+// Show specific page
+function showPage(page) {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    
+    galleryItems.forEach((item, index) => {
+        if (index >= startIndex && index < endIndex) {
+            item.classList.remove('hidden');
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+    
+    // Update active page number
+    document.querySelectorAll('.page-number').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`button[data-page="${page}"]`).classList.add('active');
+    
+    // Update button states
+    document.querySelector('.prev-page').disabled = page === 1;
+    document.querySelector('.next-page').disabled = page === totalPages;
+    
+    currentPage = page;
+}
+
+// Previous page
+function previousPage() {
+    if (currentPage > 1) {
+        showPage(currentPage - 1);
+    }
+}
+
+// Next page
+function nextPage() {
+    if (currentPage < totalPages) {
+        showPage(currentPage + 1);
+    }
+}
+
+// Render pagination numbers
+function renderPaginationNumbers() {
+    const paginationContainer = document.getElementById('paginationNumbers');
+    paginationContainer.innerHTML = '';
+    
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'page-number';
+        btn.setAttribute('data-page', i);
+        btn.textContent = i;
+        btn.onclick = () => showPage(i);
+        paginationContainer.appendChild(btn);
+    }
+}
+
+// Initialize pagination on page load
+document.addEventListener('DOMContentLoaded', initPagination);
+
 // Smooth scrolling for navigation links
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
