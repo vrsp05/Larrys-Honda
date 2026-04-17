@@ -1,7 +1,8 @@
 describe('Gallery Carousel', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('a[href="#gallery"]').click();
+    cy.viewport(1280, 720); // Desktop viewport
+    cy.get('a[href="#gallery"]').first().click();
   });
 
   it('should display carousel controls', () => {

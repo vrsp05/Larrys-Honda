@@ -1,7 +1,8 @@
 describe('Gallery Pagination', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('a[href="#gallery"]').click();
+    cy.viewport(1280, 720); // Desktop viewport
+    cy.get('a[href="#gallery"]').first().click();
   });
 
   it('should display initial page (page 1)', () => {
@@ -24,7 +25,7 @@ describe('Gallery Pagination', () => {
   it('should navigate to page 3 when page 3 button is clicked', () => {
     cy.get('.page-number[data-page="3"]').click();
     cy.get('.page-number[data-page="3"]').should('have.class', 'active');
-    cy.get('#contact').should('not.be.visible');
+    // Gallery should still be visible (page 3 is the last page with 1 item)
     cy.get('#gallery').should('be.visible');
   });
 

@@ -1,7 +1,8 @@
 describe('Contact Form Validation', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('a[href="#contact"]').click();
+    cy.viewport(1280, 720); // Desktop viewport
+    cy.get('a[href="#contact"]').first().click();
   });
 
   it('should display contact form', () => {
@@ -10,17 +11,17 @@ describe('Contact Form Validation', () => {
 
   it('should show error when submitting empty form', () => {
     cy.get('.submit-btn').click();
-    cy.get('#nameError').should('contain', 'Please enter your name');
-    cy.get('#emailError').should('contain', 'Please enter your email address');
-    cy.get('#messageError').should('contain', 'Please enter a message');
+    cy.get('#nameError').should('have.text', 'Please enter your name');
+    cy.get('#emailError').should('have.text', 'Please enter your email address');
+    cy.get('#messageError').should('have.text', 'Please enter a message');
   });
 
   it('should show error for invalid email', () => {
-    cy.get('#name').type('John Doe');
-    cy.get('#email').type('invalid-email');
-    cy.get('#message').type('Test message');
+    cy.get('#name').clear().type('John Doe');
+    cy.get('#email').clear().type('invalid-email');
+    cy.get('#message').clear().type('Test message');
     cy.get('.submit-btn').click();
-    cy.get('#emailError').should('contain', 'Please enter a valid email address');
+    cy.get('#emailError').should('have.text', 'Please enter a valid email address');
   });
 
   it('should validate name field', () => {
