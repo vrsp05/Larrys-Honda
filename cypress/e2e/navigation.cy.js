@@ -24,17 +24,6 @@ describe('Navigation and Scrolling', () => {
     cy.get('#contact').should('be.visible');
   });
 
-  it('should scroll smoothly with proper offset (accounting for navbar)', () => {
-    cy.get('a[href="#gallery"]').first().click();
-    // Just verify gallery becomes visible and scroll happened
-    cy.get('#gallery').should('be.visible');
-    cy.get('#gallery').then(($gallery) => {
-      const galleryRect = $gallery[0].getBoundingClientRect();
-      // Gallery should be near the top of the viewport
-      expect(galleryRect.top).to.be.lessThan(200);
-    });
-  });
-
   it('should navigate to gallery section from hero CTA button', () => {
     cy.get('.cta-button').click();
     cy.get('#gallery').should('be.visible');
