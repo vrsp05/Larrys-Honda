@@ -133,6 +133,15 @@ body {
     animation: fadeInDown 0.8s ease;
 }
 
+.hero-logo {
+    height: 120px;
+    width: auto;
+    max-width: 300px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    animation: fadeInDown 0.8s ease;
+}
+
 .hero-content > p:first-of-type {
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     margin-bottom: 1rem;
