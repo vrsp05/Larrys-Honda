@@ -134,7 +134,7 @@ body {
 }
 
 .hero-logo {
-    height: 120px;
+    height: 235px;
     width: auto;
     max-width: 300px;
     object-fit: contain;
@@ -169,6 +169,7 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: fadeInUp 0.8s ease 0.4s backwards;
     font-size: 0.95rem;
+    order: 2;
 }
 
 .cta-button:hover {
@@ -181,8 +182,17 @@ body {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     animation: fadeInUp 0.8s ease 0.6s backwards;
+}
+
+.hero-links .cta-link:first-child {
+    order: 1;
+}
+
+.hero-links .cta-link:last-child {
+    order: 3;
 }
 
 .cta-link {
