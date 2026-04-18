@@ -292,6 +292,8 @@ async function submitFormToWeb3Form(name, email, message) {
     formData.append('name', name);
     formData.append('email', email);
     formData.append('message', message);
+    formData.append('subject', 'NEW MESSAGE: Inquiry from Larry\'s Honda Customer');
+    formData.append('from_name', 'Larry\'s Honda Contact Center');
     
     try {
         const response = await fetch('https://api.web3forms.com/submit', {
