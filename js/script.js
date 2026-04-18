@@ -28,7 +28,11 @@ if (hamburger && navMenu) {
 
 // Change carousel image
 function changeImage(carIndex, direction) {
-    const totalImages = 5;
+    // Get total images from the carousel counter
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const carouselContainer = galleryItems[carIndex].querySelector('.carousel-container');
+    const totalImages = parseInt(carouselContainer.querySelector('.total-images').textContent);
+    
     carouselState[carIndex].current += direction;
     
     // Wrap around
@@ -38,13 +42,16 @@ function changeImage(carIndex, direction) {
         carouselState[carIndex].current = totalImages;
     }
     
-    // Get all gallery items and update the specific one
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const carouselContainer = galleryItems[carIndex].querySelector('.carousel-container');
-    const imagePath = `images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${carouselState[carIndex].current}.jpg`;
+    // Try to load image - attempt png first, then jpg
+    const currentImage = carouselContainer.querySelector('.carousel-image');
+    let imagePath = `images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${carouselState[carIndex].current}.png`;
     
     // Update image
-    carouselContainer.querySelector('.carousel-image').src = imagePath;
+    currentImage.src = imagePath;
+    currentImage.onerror = function() {
+        // If PNG fails, try JPG
+        this.src = `images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${carouselState[carIndex].current}.jpg`;
+    };
     
     // Update counter
     carouselContainer.querySelector('.current-image').textContent = carouselState[carIndex].current;
