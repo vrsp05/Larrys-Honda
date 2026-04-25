@@ -42,19 +42,70 @@ function changeImage(carIndex, direction) {
         carouselState[carIndex].current = totalImages;
     }
     
+    // Show loading spinner
+    const spinner = carouselContainer.querySelector('.image-loading-spinner');
+    if (spinner) {
+        spinner.style.display = 'block';
+    }
+    
     // Try to load image - attempt png first, then jpg
     const currentImage = carouselContainer.querySelector('.carousel-image');
-    let imagePath = `images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${carouselState[carIndex].current}.png`;
+    let imagePath = `./images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${carouselState[carIndex].current}.png`;
     
-    // Update image
-    currentImage.src = imagePath;
-    currentImage.onerror = function() {
-        // If PNG fails, try JPG
-        this.src = `images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${carouselState[carIndex].current}.jpg`;
+    // Create a temporary image to preload
+    const tempImg = new Image();
+    tempImg.onload = function() {
+        // PNG loaded successfully
+        currentImage.src = imagePath;
+        if (spinner) {
+            spinner.style.display = 'none';
+        }
+        preloadCarouselImages(carIndex, totalImages);
     };
+    tempImg.onerror = function() {
+        // PNG failed, try JPG
+        imagePath = `./images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${carouselState[carIndex].current}.jpg`;
+        const jpgImg = new Image();
+        jpgImg.onload = function() {
+            currentImage.src = imagePath;
+            if (spinner) {
+                spinner.style.display = 'none';
+            }
+            preloadCarouselImages(carIndex, totalImages);
+        };
+        jpgImg.onerror = function() {
+            // Both failed, just update src anyway
+            currentImage.src = imagePath;
+            if (spinner) {
+                spinner.style.display = 'none';
+            }
+        };
+        jpgImg.src = imagePath;
+    };
+    tempImg.src = imagePath;
     
     // Update counter
     carouselContainer.querySelector('.current-image').textContent = carouselState[carIndex].current;
+}
+
+// Preload next and previous carousel images in the background
+function preloadCarouselImages(carIndex, totalImages) {
+    const nextImageNum = (carouselState[carIndex].current % totalImages) + 1;
+    const prevImageNum = carouselState[carIndex].current === 1 ? totalImages : carouselState[carIndex].current - 1;
+    
+    // Preload next image
+    const nextImg = new Image();
+    nextImg.src = `./images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${nextImageNum}.jpg`;
+    nextImg.onerror = function() {
+        this.src = `./images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${nextImageNum}.png`;
+    };
+    
+    // Preload previous image
+    const prevImg = new Image();
+    prevImg.src = `./images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${prevImageNum}.jpg`;
+    prevImg.onerror = function() {
+        this.src = `./images/Prelude ${carIndex + 1}/prelude${carIndex + 1}-image${prevImageNum}.png`;
+    };
 }
 
 // Pagination variables
