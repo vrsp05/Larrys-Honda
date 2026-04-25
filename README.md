@@ -2,7 +2,7 @@
 
 Welcome to **Larry's Honda**, a modern web application dedicated to showcasing a curated collection of classic Honda Preludes.
 
-> **Website**: [View here.](https://larrys-honda.netlify.app/)
+> **Website**: [View here.](https://vrsp05.github.io/Larrys-Honda/)
 
 ## Project Description
 

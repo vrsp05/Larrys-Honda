@@ -693,6 +693,10 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .car-details {
+        grid-template-columns: 1fr;
+    }
+
     /* Keep pagination above mobile menu but below navbar */
     .pagination-controls {
         z-index: 50;
