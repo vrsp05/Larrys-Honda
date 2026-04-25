@@ -1,6 +1,5 @@
 # Environment variables - DO NOT COMMIT
 .env
-config.js
 
 # Dependencies
 node_modules/
